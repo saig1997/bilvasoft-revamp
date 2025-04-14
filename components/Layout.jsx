@@ -4,87 +4,66 @@ import logo from "../public/logo.png";
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900">
+    <div className="min-h-screen flex flex-col bg-[#121212]">
       <header className="bg-[#121212] text-white shadow-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center ">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <Image src={logo} alt="Bilvasoft Logo" width={150} height={50} />
           </Link>
           <nav className="flex space-x-8 text-1rem">
-            <Link href="/" className="hover:text-gray-300">Home</Link>
-            <Link href="/about" className="hover:text-gray-300">About</Link>
-            <Link href="/solutions" className="hover:text-gray-300">Solutions</Link>
-            <Link href="/contact" className="hover:text-gray-300">Contact</Link>
-            <Link href="/blog" className="hover:text-gray-300">Blog</Link>
+            <Link href="/" className="hover:text-blue-400 transition-colors">Home</Link>
+            <Link href="/about" className="hover:text-blue-400 transition-colors">About</Link>
+            <Link href="/solutions" className="hover:text-blue-400 transition-colors">Solutions</Link>
+            <Link href="/blog" className="hover:text-blue-400 transition-colors">Blog</Link>
+            <Link href="/contact" className="hover:text-blue-400 transition-colors">Contact</Link>
           </nav>
         </div>
       </header>
+      
       <main className="flex-grow">{children}</main>
-      <div className="bg-[#000000] text-white py-8">
+      
+      <footer className="bg-[#1a1a1a] text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-bold mb-2">Microsoft</h3>
-              <ul>
-                <li>
-                  <a href="#">Azure</a>
-                </li>
-                <li>
-                  <a href="#">Microsoft 365</a>
-                </li>
-                <li>
-                  <a href="#">Dynamics 365</a>
-                </li>
-                <li>
-                  <a href="#">Power Platform</a>
-                </li>
+              <h3 className="text-xl font-bold mb-4 text-blue-400">Company</h3>
+              <ul className="space-y-2">
+                <li><Link href="/about" className="text-gray-300 hover:text-blue-400 transition-colors">About Us</Link></li>
+                <li><Link href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors">Contact</Link></li>
+                <li><Link href="/careers" className="text-gray-300 hover:text-blue-400 transition-colors">Careers</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-2">Managed IT</h3>
-              <ul>
-                <li><a href="#">IT Support</a></li>
-                <li><a href="#">Cloud Services</a></li>
-                <li><a href="#">Cybersecurity</a></li>
+              <h3 className="text-xl font-bold mb-4 text-blue-400">Solutions</h3>
+              <ul className="space-y-2">
+                <li><Link href="/solutions" className="text-gray-300 hover:text-blue-400 transition-colors">Integration Services</Link></li>
+                <li><Link href="/solutions" className="text-gray-300 hover:text-blue-400 transition-colors">Data Analytics</Link></li>
+                <li><Link href="/solutions" className="text-gray-300 hover:text-blue-400 transition-colors">Cloud Solutions</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-2">Security Services</h3>
-              <ul>
-                <li><a href="#">Threat Protection</a></li>
-                <li><a href="#">Data Security</a></li>
-                <li><a href="#">Compliance</a></li>
+              <h3 className="text-xl font-bold mb-4 text-blue-400">Resources</h3>
+              <ul className="space-y-2">
+                <li><Link href="/blog" className="text-gray-300 hover:text-blue-400 transition-colors">Blog</Link></li>
+                <li><Link href="/case-studies" className="text-gray-300 hover:text-blue-400 transition-colors">Case Studies</Link></li>
+                <li><Link href="/documentation" className="text-gray-300 hover:text-blue-400 transition-colors">Documentation</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-2">Compliance</h3>
-              <ul>
-                <li><a href="#">HIPAA</a></li>
-                <li><a href="#">PCI DSS</a></li>
-                <li><a href="#">GDPR</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-2">Industries We Work With</h3>
-              <ul>
-                <li><a href="#">Healthcare</a></li>
-                <li><a href="#">Finance</a></li>
-                <li><a href="#">Retail</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-2">Resources</h3>
-              <ul>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Whitepapers</a></li>
+              <h3 className="text-xl font-bold mb-4 text-blue-400">Connect</h3>
+              <ul className="space-y-2">
+                <li className="text-gray-300">2150 S Central Expy</li>
+                <li className="text-gray-300">Suite 200</li>
+                <li className="text-gray-300">McKinney, TX 75070</li>
+                <li className="text-gray-300 mt-4">info@bilvasoft.com</li>
+                <li className="text-gray-300">+1-469-344-1376</li>
               </ul>
             </div>
           </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Bilvasoft. All rights reserved.</p>
+          </div>
         </div>
-      </div>
-      <footer className="bg-[#121212] text-white text-center py-6">
-        <p>&copy; {new Date().getFullYear()} Bilvasoft. All rights reserved.</p>
       </footer>
     </div>
   );
