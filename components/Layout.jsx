@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <header className="bg-black text-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center">
-            <Image src={logo} alt="Bilvasoft Logo" width={180} height={60} priority />
+            <Image src={logo} alt="Bilvasoft Logo" width={240} height={80} priority className="w-auto h-auto" />
           </Link>
           <nav className="hidden md:flex space-x-8">
             {[
@@ -44,7 +44,7 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
             <div className="space-y-6">
-              <Image src={logo} alt="Bilvasoft Logo" width={200} height={70} className="mb-4" priority={false} />
+              <Image src={logo} alt="Bilvasoft Logo" width={300} height={100} className="w-auto h-auto mb-4" />
               <p className="text-gray-300 text-lg leading-relaxed">
                 Building innovative solutions for a digital future.
               </p>
