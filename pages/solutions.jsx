@@ -1,7 +1,77 @@
 import Layout from "../components/Layout";
 import Link from 'next/link';
+import { MulesoftLogo, SalesforceLogo, DomoLogo, ServiceNowLogo, SnowflakeLogo, CustomLogo } from '../components/solution-logos';
 
 export default function SolutionsPage() {
+    const solutions = [
+        {
+            name: "MuleSoft Integration",
+            desc: "API-led integration solutions connecting your systems and applications.",
+            Logo: MulesoftLogo,
+            features: [
+                "API Design & Development",
+                "System Integration",
+                "Microservices Architecture",
+                "Data Synchronization"
+            ]
+        },
+        {
+            name: "Salesforce Solutions",
+            desc: "Custom Salesforce implementations tailored to your business needs.",
+            Logo: SalesforceLogo,
+            features: [
+                "CRM Integration",
+                "Sales Cloud Setup",
+                "Service Cloud Configuration",
+                "Custom Development"
+            ]
+        },
+        {
+            name: "DOMO Analytics",
+            desc: "Data visualization and analytics solutions for better decision making.",
+            Logo: DomoLogo,
+            features: [
+                "Dashboard Creation",
+                "Data Integration",
+                "Custom Reports",
+                "Analytics Setup"
+            ]
+        },
+        {
+            name: "ServiceNow Platform",
+            desc: "IT service management solutions with automated workflows.",
+            Logo: ServiceNowLogo,
+            features: [
+                "ITSM Setup",
+                "Process Automation",
+                "Service Portal Setup",
+                "Integration Services"
+            ]
+        },
+        {
+            name: "Snowflake Data Cloud",
+            desc: "Modern data warehousing solutions for your analytics needs.",
+            Logo: SnowflakeLogo,
+            features: [
+                "Data Warehouse Setup",
+                "Data Pipeline Creation",
+                "Integration Services",
+                "Analytics Support"
+            ]
+        },
+        {
+            name: "Custom Solutions",
+            desc: "Specialized integration solutions for unique requirements.",
+            Logo: CustomLogo,
+            features: [
+                "Custom Development",
+                "System Integration",
+                "Cloud Migration",
+                "Technical Support"
+            ]
+        }
+    ];
+
     return (
         <Layout>
             <div className="py-16 px-4 bg-gradient-to-br from-slate-50 to-white min-h-screen">
@@ -19,71 +89,17 @@ export default function SolutionsPage() {
 
                     {/* Solutions Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {[
-                            {
-                                name: "MuleSoft Integration",
-                                desc: "API-led integration solutions connecting your systems and applications.",
-                                features: [
-                                    "API Design & Development",
-                                    "System Integration",
-                                    "Microservices Architecture",
-                                    "Data Synchronization"
-                                ]
-                            },
-                            {
-                                name: "Salesforce Solutions",
-                                desc: "Custom Salesforce implementations tailored to your business needs.",
-                                features: [
-                                    "CRM Integration",
-                                    "Sales Cloud Setup",
-                                    "Service Cloud Configuration",
-                                    "Custom Development"
-                                ]
-                            },
-                            {
-                                name: "DOMO Analytics",
-                                desc: "Data visualization and analytics solutions for better decision making.",
-                                features: [
-                                    "Dashboard Creation",
-                                    "Data Integration",
-                                    "Custom Reports",
-                                    "Analytics Setup"
-                                ]
-                            },
-                            {
-                                name: "ServiceNow Platform",
-                                desc: "IT service management solutions with automated workflows.",
-                                features: [
-                                    "ITSM Setup",
-                                    "Process Automation",
-                                    "Service Portal Setup",
-                                    "Integration Services"
-                                ]
-                            },
-                            {
-                                name: "Snowflake Data Cloud",
-                                desc: "Modern data warehousing solutions for your analytics needs.",
-                                features: [
-                                    "Data Warehouse Setup",
-                                    "Data Pipeline Creation",
-                                    "Integration Services",
-                                    "Analytics Support"
-                                ]
-                            },
-                            {
-                                name: "Custom Solutions",
-                                desc: "Specialized integration solutions for unique requirements.",
-                                features: [
-                                    "Custom Development",
-                                    "System Integration",
-                                    "Cloud Migration",
-                                    "Technical Support"
-                                ]
-                            }
-                        ].map((solution, index) => (
+                        {solutions.map((solution, index) => (
                             <div key={index} className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
-                                <h3 className="text-2xl font-bold mb-4 text-teal-700">{solution.name}</h3>
-                                <p className="text-slate-600 mb-6">{solution.desc}</p>
+                                <div className="flex items-start mb-6">
+                                    <div className="w-24 h-24 flex items-center justify-center mr-4">
+                                        <solution.Logo className="w-full h-full" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-teal-700">{solution.name}</h3>
+                                        <p className="text-slate-600 mt-2">{solution.desc}</p>
+                                    </div>
+                                </div>
                                 <ul className="space-y-3">
                                     {solution.features.map((feature, i) => (
                                         <li key={i} className="flex items-center text-slate-600">
