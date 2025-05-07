@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import React, { useState } from "react";
 import logo from "../public/solution-logos/Bilvasoft-Logo.png";
 
 export default function Layout({ children }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen flex flex-col bg-[#121212]">
       <header className="bg-white text-teal-500 shadow-md sticky top-0 z-50">
@@ -28,14 +30,47 @@ export default function Layout({ children }) {
               </Link>
             ))}
           </nav>
-          
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-teal-500">
+          <button
+            className="md:hidden text-teal-500"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            aria-label="Open mobile menu"
+          >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex flex-col md:hidden">
+            <div className="bg-white text-teal-500 w-full p-8 flex flex-col space-y-6 shadow-lg">
+              <button
+                className="self-end mb-4 text-2xl"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close mobile menu"
+              >
+                &times;
+              </button>
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About" },
+                { href: "/solutions", label: "Solutions" },
+                { href: "/blog", label: "Blog" },
+                { href: "/contact", label: "Contact" }
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-medium tracking-wide text-lg text-teal-500 hover:text-teal-600 transition-colors duration-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </header>
       
       <main className="flex-grow">{children}</main>
