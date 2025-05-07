@@ -1,13 +1,13 @@
 import Layout from "../components/Layout";
 import Link from 'next/link';
-import { MulesoftLogo, SalesforceLogo, DomoLogo, ServiceNowLogo, SnowflakeLogo, CustomLogo } from '../components/solution-logos';
+import Image from 'next/image';
 
 export default function SolutionsPage() {
     const solutions = [
         {
             name: "MuleSoft Integration",
             desc: "API-led integration solutions connecting your systems and applications.",
-            Logo: MulesoftLogo,
+            logo: "/solution-logos/mulesoft.png",
             features: [
                 "API Design & Development",
                 "System Integration",
@@ -18,7 +18,7 @@ export default function SolutionsPage() {
         {
             name: "Salesforce Solutions",
             desc: "Custom Salesforce implementations tailored to your business needs.",
-            Logo: SalesforceLogo,
+            logo: "/solution-logos/salesforce-logo.png",
             features: [
                 "CRM Integration",
                 "Sales Cloud Setup",
@@ -29,7 +29,7 @@ export default function SolutionsPage() {
         {
             name: "DOMO Analytics",
             desc: "Data visualization and analytics solutions for better decision making.",
-            Logo: DomoLogo,
+            logo: "/solution-logos/domo-vector-logo.png",
             features: [
                 "Dashboard Creation",
                 "Data Integration",
@@ -40,7 +40,7 @@ export default function SolutionsPage() {
         {
             name: "ServiceNow Platform",
             desc: "IT service management solutions with automated workflows.",
-            Logo: ServiceNowLogo,
+            logo: "/solution-logos/ServiceNow-Logo.png",
             features: [
                 "ITSM Setup",
                 "Process Automation",
@@ -51,7 +51,7 @@ export default function SolutionsPage() {
         {
             name: "Snowflake Data Cloud",
             desc: "Modern data warehousing solutions for your analytics needs.",
-            Logo: SnowflakeLogo,
+            logo: "/solution-logos/snowflakepng.png",
             features: [
                 "Data Warehouse Setup",
                 "Data Pipeline Creation",
@@ -62,7 +62,7 @@ export default function SolutionsPage() {
         {
             name: "Custom Solutions",
             desc: "Specialized integration solutions for unique requirements.",
-            Logo: CustomLogo,
+            logo: "/solution-logos/custom-solutions.jpeg",
             features: [
                 "Custom Development",
                 "System Integration",
@@ -90,10 +90,15 @@ export default function SolutionsPage() {
                     {/* Solutions Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {solutions.map((solution, index) => (
-                            <div key={index} className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
+                            <div key={index} className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-all duration-300 border-2 border-teal-400">
                                 <div className="flex items-start mb-6">
                                     <div className="w-24 h-24 flex items-center justify-center mr-4">
-                                        <solution.Logo className="w-full h-full" />
+                                        {solution.logo ? (
+                                            <Image src={solution.logo} alt={solution.name + ' logo'} width={96} height={96} className="object-contain w-full h-full" />
+                                        ) : (
+                                            <div className="w-full h-full bg-slate-200 flex items-center justify-center rounded">?
+                                            </div>
+                                        )}
                                     </div>
                                     <div>
                                         <h3 className="text-2xl font-bold text-teal-700">{solution.name}</h3>

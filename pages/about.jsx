@@ -18,7 +18,7 @@ export default function AboutPage() {
         {/* Mission Section */}
         <div className="max-w-7xl mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-slate-100">
+            <div className="bg-white p-8 rounded-lg shadow-sm border-2 border-teal-400">
               <h2 className="text-3xl font-bold mb-6 text-teal-700">Our Mission</h2>
               <p className="text-slate-600 text-lg leading-relaxed">
                 To help businesses build effective integration solutions that improve efficiency
@@ -26,7 +26,7 @@ export default function AboutPage() {
                 ServiceNow, and Snowflake to connect systems and streamline operations.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-slate-100">
+            <div className="bg-white p-8 rounded-lg shadow-sm border-2 border-teal-400">
               <h2 className="text-3xl font-bold mb-6 text-teal-700">Our Approach</h2>
               <p className="text-slate-600 text-lg leading-relaxed">
                 We focus on understanding each client's unique needs and delivering
@@ -67,7 +67,7 @@ export default function AboutPage() {
                 description: "We provide reliable technical support for our solutions."
               }
             ].map((value, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border-2 border-teal-400">
                 <h3 className="text-xl font-bold mb-3 text-teal-700">{value.title}</h3>
                 <p className="text-slate-600">{value.description}</p>
               </div>

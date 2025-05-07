@@ -4,9 +4,14 @@ import Link from 'next/link';
 export default function HomePage() {
     return (
         <Layout>
-            {/* Hero Section */}
-            <div className="relative py-24 px-4 bg-gradient-to-br from-slate-50 to-white">
-                <div className="max-w-6xl mx-auto">
+            {/* Hero Section + Extended Light Background */}
+            <div className="relative pb-32 bg-gradient-to-br from-slate-50 to-white overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <img src="/solution-logos/home-background.png" alt="Background" className="w-full h-full object-cover opacity-40" />
+                    <div className="absolute inset-0 bg-white opacity-60"></div>
+                </div>
+                <div className="max-w-6xl mx-auto relative z-10 py-24 px-4">
                     <div className="text-center mb-16">
                         <h1 className="text-6xl font-bold mb-6 font-sans text-slate-800">
                             Integration Solutions for Your Business
@@ -19,9 +24,10 @@ export default function HomePage() {
                             Schedule a Consultation
                         </Link>
                     </div>
-
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
+                {/* Features Grid and below - clean background, but inside the extended section */}
+                <div className="max-w-6xl mx-auto px-4 -mt-16 relative z-20">
+                    <div className="rounded-2xl bg-white shadow-2xl p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             {
                                 title: "API Integration",
@@ -48,21 +54,11 @@ export default function HomePage() {
                                 description: "Get reliable technical support for your integration needs."
                             }
                         ].map((feature, index) => (
-                            <div key={index} className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
+                            <div key={index} className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border-2 border-teal-400">
                                 <h3 className="text-xl font-semibold mb-3 text-teal-700">{feature.title}</h3>
                                 <p className="text-slate-600">{feature.description}</p>
                             </div>
                         ))}
-                    </div>
-
-                    {/* CTA Section */}
-                    <div className="text-center mt-16">
-                        <div className="inline-flex items-center gap-8 p-8 bg-white rounded-lg shadow-sm border border-slate-100">
-                            <p className="text-slate-700 font-bold">Ready to discuss your integration needs?</p>
-                            <Link href="/contact" className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200">
-                                Get Started
-                            </Link>
-                        </div>
                     </div>
                 </div>
             </div>

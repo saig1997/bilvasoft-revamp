@@ -1,6 +1,9 @@
 import Layout from "../components/Layout";
+import React, { useState } from "react";
 
 export default function CareersPage() {
+  const [showApplyModal, setShowApplyModal] = useState(false);
+
   const openPositions = [
     {
       title: "Senior Integration Developer",
@@ -119,7 +122,7 @@ export default function CareersPage() {
                         </span>
                       </div>
                     </div>
-                    <button className="mt-4 md:mt-0 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button onClick={() => setShowApplyModal(true)} className="mt-4 md:mt-0 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                       Apply Now
                     </button>
                   </div>
@@ -137,6 +140,22 @@ export default function CareersPage() {
             </div>
           </div>
         </div>
+
+        {/* Modal for Apply Now */}
+        {showApplyModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
+              <h2 className="text-2xl font-bold mb-4 text-slate-800">Apply for this Position</h2>
+              <form className="space-y-4">
+                <input type="text" placeholder="Your Name" className="w-full border border-slate-200 rounded-lg px-4 py-2" />
+                <input type="email" placeholder="Your Email" className="w-full border border-slate-200 rounded-lg px-4 py-2" />
+                <input type="file" className="w-full" />
+                <button type="submit" className="w-full bg-teal-600 text-white py-2 rounded-lg font-bold">Submit Application</button>
+                <button type="button" onClick={() => setShowApplyModal(false)} className="w-full mt-2 text-teal-600">Cancel</button>
+              </form>
+            </div>
+          </div>
+        )}
 
         {/* Contact Section */}
         <div className="py-20 px-6">
